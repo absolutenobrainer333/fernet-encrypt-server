@@ -19,6 +19,8 @@ from django.urls import path
 import cryptoService.views as cryptoService
 
 urlpatterns = [
-    path("encrypt", cryptoService.Encryption.as_view()),
-    path("decrypt", cryptoService.Decryption.as_view()),
+    path("FernetEncrypt", cryptoService.FernetEncryption.as_view()),
+    path("FernetDecrypt", cryptoService.FernetDecryption.as_view()),
+    # path("AESEncrypt", cryptoService.AESEncryption.as_view()),
+    # path("AESDecrypt", cryptoService.AESDecryption.as_view()),
 ]

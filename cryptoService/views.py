@@ -9,7 +9,7 @@ from cryptography.fernet import Fernet
 from .utils.base64util import convertStringToBase64String
 
 
-class Encryption(CreateAPIView):
+class FernetEncryption(CreateAPIView):
     def create(self, request, *args, **kwargs):
         key, data = request.data["key"], request.data["data"]
         fernetEncryptAlgorithm = Fernet(convertStringToBase64String(key))
@@ -17,7 +17,7 @@ class Encryption(CreateAPIView):
         return Response(encryptedString, status=status.HTTP_200_OK)
 
 
-class Decryption(CreateAPIView):
+class FernetDecryption(CreateAPIView):
     def create(self, request, *args, **kwargs):
         key, data = request.data["key"], request.data["data"]
         try:
